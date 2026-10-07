@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio của Võ Thị Hồng Thu, Junior Data Analyst: phân khúc khách hàng P2P Lending và dự báo trễ đơn giao hàng bằng Python, SQL, PySpark.">
     <title>Võ Thị Hồng Thu - Data Analyst Portfolio</title>
     <style>
         :root {
@@ -11,35 +12,40 @@
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-color: #334155;
+            --muted: #64748b;
+            --line: #e2e8f0;
         }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            line-height: 1.65;
         }
+        a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
         header {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 4rem 1.5rem 5rem;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { font-size: 1.15rem; color: #cbd5e1; margin: 0.5rem 0 1.5rem; }
+        .header-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+        .header-links a {
+            color: white;
+            border: 1px solid #475569;
+            padding: 0.45rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
-        header p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-top: 0.5rem;
-        }
-        .container {
-            max-width: 900px;
-            margin: -2rem auto 3rem auto;
-            padding: 0 1.5rem;
-        }
+        .header-links a:hover { background-color: #1e293b; }
+        .header-links a.primary { background-color: var(--accent-color); border-color: var(--accent-color); }
+        .header-links a.primary:hover { background-color: #1d4ed8; }
+        .container { max-width: 900px; margin: -2rem auto 3rem; padding: 0 1.5rem; }
         section {
             background-color: var(--card-bg);
             margin-bottom: 2rem;
@@ -53,28 +59,27 @@
             padding-bottom: 0.5rem;
             margin-top: 0;
         }
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            list-style: none;
-            padding: 0;
-        }
+        h3 { margin: 0 0 0.25rem; color: var(--accent-color); }
+        .skill-group { margin-bottom: 1rem; }
+        .skill-group h3 { font-size: 1rem; color: var(--primary-color); margin-bottom: 0.4rem; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 0.6rem; list-style: none; padding: 0; margin: 0; }
         .skills-list li {
             background-color: #e0f2fe;
             color: #0369a1;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.9rem;
         }
-        .project-item {
-            margin-bottom: 1.5rem;
-        }
-        .project-item h3 {
-            margin-bottom: 0.25rem;
-            color: var(--accent-color);
-        }
+        .project-item + .project-item { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 2rem; }
+        .tech { color: var(--muted); font-size: 0.95rem; margin: 0 0 1rem; }
+        .project-item dl { margin: 0; }
+        .project-item dt { font-weight: 700; color: var(--primary-color); margin-top: 0.75rem; }
+        .project-item dd { margin: 0.1rem 0 0; }
+        .project-item ul { margin: 0.2rem 0 0; padding-left: 1.2rem; }
+        figure.shot { margin: 1rem 0 0; }
+        figure.shot img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+        figure.shot figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
         .btn {
             display: inline-block;
             background-color: var(--accent-color);
@@ -83,17 +88,28 @@
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 0.75rem;
-            transition: background-color 0.2s;
+            margin-top: 1rem;
         }
-        .btn:hover {
-            background-color: #1d4ed8;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #64748b;
-            font-size: 0.9rem;
+        .btn:hover { background-color: #1d4ed8; }
+        .timeline-item + .timeline-item { margin-top: 1rem; }
+        .timeline-item .when { color: var(--muted); font-size: 0.9rem; }
+        .cert-list { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+        .contact-list { list-style: none; padding: 0; margin: 0; }
+        .contact-list li + li { margin-top: 0.4rem; }
+        .contact-list a { color: var(--accent-color); font-weight: 600; }
+        footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.9rem; }
+        .project-item ul.steps { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+        .project-item ul.steps li + li { margin-top: 0.3rem; }
+        .table-wrap { overflow-x: auto; margin-top: 0.4rem; }
+        table.result { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+        table.result th, table.result td { border: 1px solid var(--line); padding: 0.45rem 0.7rem; text-align: left; white-space: nowrap; }
+        table.result th { background: #f1f5f9; color: var(--primary-color); }
+        .note { color: var(--muted); font-size: 0.92rem; }
+        .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .shots figure.shot { margin: 0; }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            section { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -101,66 +117,171 @@
 
     <header>
         <h1>Võ Thị Hồng Thu</h1>
-        <p>Junior Data Analyst | Financial Technology Student</p>
+        <p>Junior Data Analyst | SQL, Python, Machine Learning</p>
+        <div class="header-links">
+            <a class="primary" href="CV_Vo_Thi_Hong_Thu.pdf" target="_blank" rel="noopener">Tải CV</a>
+            <!-- TODO: thêm LinkedIn, ví dụ:
+            <a href="https://www.linkedin.com/in/ten-cua-ban" target="_blank" rel="noopener">LinkedIn</a> -->
+            <a href="mailto:vohongthu05@gmail.com">Email</a>
+        </div>
     </header>
 
-    <div class="container">
-        
-        <!-- Giới thiệu -->
-        <section>
-            <h2>Giới thiệu bản thân</h2>
-            <p>Sinh viên năm cuối ngành Công nghệ Tài chính tại Đại học Tài chính - Marketing (UFM) với nền tảng vững chắc về xử lý dữ liệu, phân tích tài chính và tư duy phản biện. Thành thạo Python, SQL, Excel và các mô hình học máy để khai thác dữ liệu thực tế nhằm hỗ trợ ra quyết định kinh doanh.</p>
+    <main class="container">
+
+        <section id="about">
+            <h2>Giới thiệu</h2>
+            <p>Sinh viên năm cuối ngành Công nghệ Tài chính tại Đại học Tài chính - Marketing (UFM), có kinh nghiệm thực tập tại Phòng Giải pháp số của Nam A Bank. Mình làm việc với dữ liệu bằng Python, SQL và Excel, từ làm sạch, phân tích khám phá đến xây dựng mô hình học máy, và quan tâm đặc biệt đến các bài toán tín dụng và vận hành. Mình đang tìm vị trí Junior Data Analyst.</p>
         </section>
 
-        <!-- Kỹ năng -->
-        <section>
-            <h2>Kỹ năng chuyên môn</h2>
-            <ul class="skills-list">
-                <li>Python (Pandas, NumPy, Scikit-Learn)</li>
-                <li>SQL </li>
-                <li>Data Cleaning & EDA</li>
-                <li>Customer Segmentation</li>
-                <li>Advanced Excel (MOS Certified)</li>
-                <li>PowerPoint & Data Visualization</li>
+        <section id="skills">
+            <h2>Kỹ năng</h2>
+            <div class="skill-group">
+                <h3>Truy vấn và xử lý dữ liệu</h3>
+                <ul class="skills-list">
+                    <li>SQL</li>
+                    <li>Python (Pandas, NumPy)</li>
+                    <li>PySpark</li>
+                    <li>MongoDB</li>
+                    <li>Data Cleaning</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>Phân tích và mô hình hóa</h3>
+                <ul class="skills-list">
+                    <li>EDA</li>
+                    <li>Scikit-Learn</li>
+                    <li>Customer Segmentation (K-Means)</li>
+                    <li>Logistic Regression</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>Trực quan hóa và báo cáo</h3>
+                <ul class="skills-list">
+                    <li>Matplotlib, Seaborn</li>
+                    <li>Dash Plotly</li>
+                    <li>Advanced Excel (MOS Certified)</li>
+                    <li>PowerPoint</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Dự án</h2>
+
+            <article class="project-item">
+                <h3>Phân khúc khách hàng vay P2P Lending</h3>
+                <p class="tech">Python, Pandas, Scikit-Learn, Google Colab, Kaggle API</p>
+                <dl>
+                    <dt>Bài toán</dt>
+                    <dd>Chia khách hàng vay trên Lending Club thành các nhóm có hồ sơ rủi ro và chi phí vốn khác nhau, để hỗ trợ định giá khoản vay và quản trị rủi ro tín dụng.</dd>
+                    <dt>Cách làm</dt>
+                    <dd>
+                        <ul class="steps">
+                            <li>Lọc giai đoạn 2007-2015, từ 2.260.668 xuống 887.440 khoản vay. Chọn 17 biến về khoản vay, thu nhập, xếp hạng tín dụng và lịch sử tín dụng.</li>
+                            <li>Điền giá trị thiếu bằng median (mỗi biến thiếu tối đa 5,6%), cắt ngoại lai ở phân vị 1% và 99%, chuẩn hóa bằng StandardScaler.</li>
+                            <li>Thử k từ 2 đến 8 với Silhouette, Davies-Bouldin và Calinski-Harabasz. Chọn k=3 dù k=2 có Silhouette cao nhất, vì 2 nhóm quá thô để phân khúc, còn 3 nhóm cân đối và giải thích được.</li>
+                            <li>Phân cụm bằng MiniBatchKMeans. Mã nguồn tải dữ liệu tự động qua Kaggle API nên không cần lưu file dữ liệu lớn.</li>
+                        </ul>
+                    </dd>
+                    <dt>Kết quả</dt>
+                    <dd>
+                        <div class="table-wrap">
+                            <table class="result">
+                                <thead><tr><th>Nhóm</th><th>Tỷ lệ</th><th>Lãi suất TB</th><th>Khoản vay TB</th><th>Kỳ hạn TB</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Tín dụng tốt, rủi ro thấp</td><td>39,64%</td><td>9,33%</td><td>13.367 USD</td><td>38,3 tháng</td></tr>
+                                    <tr><td>Vay nhỏ, chi phí vốn cao</td><td>35,97%</td><td>15,36%</td><td>9.835 USD</td><td>42,2 tháng</td></tr>
+                                    <tr><td>Vay lớn, rủi ro cao hơn</td><td>24,40%</td><td>16,46%</td><td>24.283 USD</td><td>52,7 tháng</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </dd>
+                    <dt>Hạn chế</dt>
+                    <dd class="note">Silhouette của mô hình k=3 là 0,106, nghĩa là các cụm chồng lấn một phần. Kết quả phù hợp để mô tả phân khúc hơn là phân loại cứng từng khách hàng.</dd>
+                </dl>
+                <div class="shots">
+                    <figure class="shot">
+                        <img src="images/p1_pca_clusters.png" alt="Biểu đồ PCA 2D thể hiện 3 cụm khách hàng vay" width="845" height="626">
+                        <figcaption>3 cụm khách hàng trên không gian PCA 2D.</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <img src="images/p1_cluster_profile_heatmap.png" alt="Heatmap giá trị trung bình các đặc trưng theo cụm" width="1062" height="634">
+                        <figcaption>Giá trị trung bình các đặc trưng theo từng cụm.</figcaption>
+                    </figure>
+                </div>
+                <a href="https://colab.research.google.com/drive/1qF4-Y-Z8fmpatlpI_5j10JV8RMmDUhBv?usp=sharing" class="btn" target="_blank" rel="noopener">Xem mã nguồn trên Google Colab</a>
+            </article>
+
+            <article class="project-item">
+                <h3>Dự báo đơn giao hàng trễ và tối ưu chi phí vận hành</h3>
+                <p class="tech">Python, PySpark, MongoDB, Dash Plotly, Scikit-Learn, Open-Meteo API</p>
+                <dl>
+                    <dt>Bài toán</dt>
+                    <dd>Dự báo đơn hàng có nguy cơ giao trễ (trên 60 phút) để doanh nghiệp can thiệp sớm và giảm chi phí vận hành.</dd>
+                    <dt>Cách làm</dt>
+                    <dd>
+                        <ul class="steps">
+                            <li>Dữ liệu LaDe (Cainiao) về đơn giao hàng tại Trùng Khánh, 05-11/2023: 931.351 đơn thô, còn 829.307 đơn sau khi loại thời gian lỗi, tọa độ bất thường và ngoại lai thời gian giao.</li>
+                            <li>Tạo đặc trưng: khoảng cách (haversine), khung giờ, thời tiết theo giờ từ Open-Meteo API, lịch nghỉ lễ Trung Quốc, tương tác mưa và giờ cao điểm, mật độ đơn theo giờ.</li>
+                            <li>Kiến trúc dữ liệu: MongoDB Atlas lưu 206 chỉ số KPI theo ngày, giờ và thành phố cùng mẫu 20.000 đơn; PySpark Structured Streaming xử lý micro-batch và cập nhật trạng thái shipper; dashboard Dash tự làm mới mỗi 10 giây.</li>
+                            <li>So sánh Logistic Regression và Random Forest (class_weight balanced), tách train/test 80/20 có phân tầng, chọn ngưỡng phân loại trên tập validation.</li>
+                        </ul>
+                    </dd>
+                    <dt>Kết quả</dt>
+                    <dd>
+                        <ul class="steps">
+                            <li>Logistic Regression (balanced) đạt AUC 0,8259 trên 164.247 đơn kiểm tra. Với lớp đơn trễ: precision 0,93, recall 0,74.</li>
+                            <li>Mô phỏng kinh tế: giả định bồi thường 1,5 mỗi đơn trễ, 0,08 mỗi phút trễ, chi phí can thiệp 0,30 mỗi đơn và can thiệp giảm 35% số phút trễ, chi phí giảm 21,95% (từ 1.491.188 xuống 1.163.922 đơn vị chi phí giả định). Phân tích độ nhạy cho kết quả từ 11,6% đến 32,3% khi hiệu quả can thiệp thay đổi từ 20% đến 50%.</li>
+                        </ul>
+                    </dd>
+                    <dt>Hạn chế</dt>
+                    <dd class="note">Với ngưỡng 60 phút, 82,8% đơn bị gắn nhãn trễ nên nhãn bị lệch mạnh, vì vậy mô hình dùng class_weight và được đánh giá bằng AUC. Mức tiết kiệm 21,95% là kết quả mô phỏng theo các giả định trên, chưa phải số liệu vận hành thực tế.</dd>
+                </dl>
+                <div class="shots">
+                    <figure class="shot">
+                        <img src="images/p2_roc_curve.png" alt="Đường cong ROC của mô hình dự báo đơn trễ, AUC 0,8259" width="536" height="470">
+                        <figcaption>Đường cong ROC của mô hình cuối (AUC = 0,8259).</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <img src="images/p2_sensitivity.png" alt="Phân tích độ nhạy: mức tiết kiệm theo hiệu quả can thiệp" width="721" height="393">
+                        <figcaption>Mức tiết kiệm mô phỏng theo hiệu quả can thiệp.</figcaption>
+                    </figure>
+                </div>
+                <!-- TODO: chạy dashboard Dash trong Colab, chụp màn hình rồi lưu images/p2_dashboard.png và thêm 1 <figure> ở đây -->
+                <a href="https://colab.research.google.com/drive/19fwt1Pok6ik9NRHemRrf_Sghx2VMj44y?usp=sharing" class="btn" target="_blank" rel="noopener">Xem mã nguồn trên Google Colab</a>
+            </article>
+        </section>
+
+        <section id="experience">
+            <h2>Thực tập và chứng chỉ</h2>
+            <div class="timeline-item">
+                <h3>FinTech Intern, Nam A Bank (Phòng Giải pháp số)</h3>
+                <div class="when">03/2026 - 08/2026</div>
+                <p>Phân tích quy trình ngân hàng số, hành trình khách hàng và luồng thanh toán để tìm điểm nghẽn. Tìm hiểu Open Banking và tích hợp API, lập tài liệu luồng kết nối với đối tác bằng sơ đồ quy trình và báo cáo.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Chứng chỉ</h3>
+                <ul class="cert-list">
+                    <li>Google Data Analytics Professional Certificate (09/2026)</li>
+                    <li>Microsoft Office Specialist: Excel Associate và Word Associate (09/2025)</li>
+                    <li>AIESEC: Data Analysis Course (03/2023)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Liên hệ</h2>
+            <ul class="contact-list">
+                <li>Email: <a href="mailto:vohongthu05@gmail.com">vohongthu05@gmail.com</a></li>
+                <li>Khu vực: TP. Hồ Chí Minh</li>
+                <li><a href="CV_Vo_Thi_Hong_Thu.pdf" target="_blank" rel="noopener">Tải CV (PDF)</a></li>
             </ul>
         </section>
 
-        <!-- Dự án tiêu biểu -->
-        <section>
-            <h2>Dự án tiêu biểu</h2>
-            
-            <div class="project-item">
-                <h3>1. P2P Lending Customer Segmentation & Big Data Analytics</h3>
-                <p><strong>Công nghệ:</strong> Python, Pandas, Scikit-Learn, Google Colab</p>
-                <p><strong>Mô tả:</strong> Xử lý và làm sạch tập dữ liệu lớn với hơn 880.000 bản ghi từ Lending Club. Áp dụng thuật toán <em>MiniBatchKMeans</em> để phân cụm khách hàng vay vốn thành 3 nhóm trọng tâm (Nhóm tín dụng tốt – rủi ro thấp, Nhóm vay nhỏ – chi phí vốn cao, Nhóm vay lớn – rủi ro cao hơn), hỗ trợ tối ưu hóa quản trị rủi ro tín dụng.</p>
-                <p><em>(Lưu ý: Mã nguồn được tích hợp cơ chế tải dữ liệu tự động qua Kaggle API để tối ưu dung lượng lưu trữ).</em></p>
-                <a href="https://colab.research.google.com/drive/1qF4-Y-Z8fmpatlpI_5j10JV8RMmDUhBv?usp=sharing" class="btn" target="_blank">Xem Source Code trên Google Colab</a>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 2rem 0;">
-
-            <!-- Dự án 2 -->
-            <div class="project-item">
-                <h3>2. Delivery Order Delay Risk Prediction & Operational Cost Optimization</h3>
-                <p><strong>Công nghệ:</strong> Python, PySpark, MongoDB, Dash Plotly, Open-Meteo API</p>
-                <p><strong>Mô tả:</strong> Xây dựng hệ thống phân tích dữ liệu lớn xử lý hơn 930.000+ bản ghi đơn hàng, tích hợp dữ liệu thời tiết thực tế qua API và lịch nghỉ lễ. Xây dựng mô hình phân loại (Logistic Regression Balanced, AUC = 0.8259) dự báo trễ đơn hàng, giúp tối ưu hóa và tiết kiệm 21.95% chi phí vận hành cho doanh nghiệp.</p>
-                <a href="https://colab.research.google.com/drive/19fwt1Pok6ik9NRHemRrf_Sghx2VMj44y?usp=sharing" class="btn" target="_blank">Xem Source Code trên Google Colab</a>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 2rem 0;">
-
-        <!-- Liên hệ -->
-        <section>
-            <h2>Thông tin liên hệ</h2>
-            <p>📍 Địa chỉ: Huỳnh Tấn Phát, Quận 7, TP. Hồ Chí Minh</p>
-            <p>📧 Email: vohongthu05@gmail.com</p>
-            <p>📞 Điện thoại: 0368680405</p>
-        </section>
-
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Võ Thị Hồng Thu. Designed for Data Analyst Portfolio.</p>
+        <p>&copy; 2026 Võ Thị Hồng Thu</p>
     </footer>
 
 </body>
